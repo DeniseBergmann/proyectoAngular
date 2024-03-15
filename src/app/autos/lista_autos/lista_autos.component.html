@@ -1,14 +1,14 @@
 <div class="card">
-  <div class="card_header">
-    <h1>{{tituloListaAutos}}</h1>
+  <div class="card-header">
+    <h1>{{ tituloListaAutos }}</h1>
   </div>
-  <div class="card_body">
+  <div class="card-body">
     <div class="row">
       <div class="col-md-12">
         <label>Filtrar por:</label>
       </div>
       <div class="col-md-4">
-        <input type="text">
+        <input type="text" [(ngModel)]="filtro">
       </div>
     </div>
     <div class="row">
@@ -17,12 +17,13 @@
       </div>
     </div>
   </div>
-  <div class="table-responsive" *ngIf="arregloAutos.length>0">
-    <div class="tabla">
+  <table class="table" *ngIf="listaAutos.length>0">
       <thead>
-        <tr>
+        <tr class="text-primary">
           <th>
-            <button class="btn btn-primary">Imagenes</button>
+            <button class="btn btn-primary" (click)="toggleImage()">
+              {{muestraImagen ? "Oculta" : "Muestra"}} imagen
+            </button>
           </th>
           <th>Marca</th>
           <th>Modelo</th>
@@ -34,8 +35,20 @@
         </tr>
       </thead>
       <tbody>
-        Cuerpo de la tabla
+        <tr *ngFor="let auto of listaAutos">
+          <td>
+            <p><img [src]="auto.imagenUrl" *ngIf="muestraImagen"
+              [style.width.px]="anchoImagen"
+              [style.margin.px]="margenImagen"></p>
+          </td>
+          <td>{{ auto.marca | lowercase }}</td>
+          <td>{{ auto.modelo }}</td>
+          <td>{{ auto.anio }}</td>
+          <td>{{ auto.color }}</td>
+          <td>{{ auto.kilometros | number }}</td>
+          <td>{{ auto.precio | currency }}</td>
+          <td>{{ auto.calificacion }}</td>
+        </tr>
       </tbody>
-    </div>
-  </div>
+  </table>
 </div>

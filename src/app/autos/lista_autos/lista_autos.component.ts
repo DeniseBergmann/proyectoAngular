@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Auto } from 'src/app/datos/auto';
 
 @Component({
   selector: 'app-lista_autos',
@@ -8,11 +9,22 @@ import { Component, OnInit } from '@angular/core';
 export class Lista_autosComponent implements OnInit {
   tituloListaAutos: string = "Lista de Autos";
 
-  arregloAutos: string[] = [];
+  listaAutos: Auto[] = [];
+  muestraImagen: boolean = false;
+  filtro = "fil";
+  anchoImagen = 120;
+  margenImagen = 5;
+
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.listaAutos = [
+
+    ]:
   }
 
+  toggleImage(): void {
+    this.muestraImagen = !this.muestraImagen;
+  }
 }
