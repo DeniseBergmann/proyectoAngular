@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Auto } from 'src/app/datos/auto';
+import { Auto } from '../../datos/auto';
 
 @Component({
   selector: 'app-lista_autos',
@@ -7,21 +7,77 @@ import { Auto } from 'src/app/datos/auto';
   styleUrls: ['./lista_autos.component.css']
 })
 export class Lista_autosComponent implements OnInit {
-  tituloListaAutos: string = "Lista de Autos";
 
+  tituloListaAutos: string = "Lista de Autos";
   listaAutos: Auto[] = [];
-  muestraImagen: boolean = false;
   filtro = "fil";
   anchoImagen = 120;
   margenImagen = 5;
+  muestraImagen: boolean = false;
+
 
 
   constructor() { }
 
   ngOnInit(): void {
     this.listaAutos = [
+      {
+        id: 1,
+        marca: "Ford",
+        modelo: "Mustang",
+        anio: 2024,
+        color: "Azul Claro",
+        kilometros: 15500,
+        calificacion: 4.6,
+        precio: 141000,
+        imagenUrl: "assets/imagenesAutos/2024-Ford-Mustang.png"
+      },
+      {
+        id: 2,
+        marca: "Subaru",
+        modelo: "BRZ",
+        anio: 2024,
+        color: "Azul",
+        kilometros: 20080,
+        calificacion: 4.1,
+        precio: 135045,
+        imagenUrl: "assets/imagenesAutos/2024-subaru-brz.png"
+      },
+      {
+        id: 3,
+        marca: "Audi",
+        modelo: "RS5",
+        anio: 2024,
+        color: "Azul",
+        kilometros: 25500,
+        calificacion: 4.7,
+        precio: 178900,
+        imagenUrl: "assets/imagenesAutos/2024-audi-rs-5.png"
+      },
+      {
+        id: 4,
+        marca: "BMW",
+        modelo: "M4",
+        anio: 2023,
+        color: "Azul",
+        kilometros: 27500,
+        calificacion: 4.3,
+        precio: 193300,
+        imagenUrl: "assets/imagenesAutos/2023-bmw-m4_1.png"
+      },
+      {
+        id: 5,
+        marca: "Jaguar",
+        modelo: "F-Type",
+        anio: 2024,
+        color: "Plomo",
+        kilometros: 17200,
+        calificacion: 4.9,
+        precio: 191900,
+        imagenUrl: "assets/imagenesAutos/2024-jaguar-f-Type.png"
+      },
+    ];
 
-    ]:
   }
 
   toggleImage(): void {
