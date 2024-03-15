@@ -26,11 +26,11 @@ export class Lista_autosComponent implements OnInit {
         marca: "Ford",
         modelo: "Mustang",
         anio: 2024,
-        color: "Azul Claro",
+        color: "Blanco",
         kilometros: 15500,
         calificacion: 4.6,
         precio: 141000,
-        imagenUrl: "assets/imagenesAutos/2024-Ford-Mustang.png"
+        imagenUrl: "assets/ImagenesAutos/2024-Ford-Mustang.png"
       },
       {
         id: 2,
@@ -41,7 +41,7 @@ export class Lista_autosComponent implements OnInit {
         kilometros: 20080,
         calificacion: 4.1,
         precio: 135045,
-        imagenUrl: "assets/imagenesAutos/2024-subaru-brz.png"
+        imagenUrl: "assets/ImagenesAutos/2024-subaru-brz.png"
       },
       {
         id: 3,
@@ -52,18 +52,18 @@ export class Lista_autosComponent implements OnInit {
         kilometros: 25500,
         calificacion: 4.7,
         precio: 178900,
-        imagenUrl: "assets/imagenesAutos/2024-audi-rs-5.png"
+        imagenUrl: "assets/ImagenesAutos/2024-audi-rs-5.png"
       },
       {
         id: 4,
         marca: "BMW",
         modelo: "M4",
         anio: 2023,
-        color: "Azul",
+        color: "Azul Oscuro",
         kilometros: 27500,
         calificacion: 4.3,
         precio: 193300,
-        imagenUrl: "assets/imagenesAutos/2023-bmw-m4_1.png"
+        imagenUrl: "assets/ImagenesAutos/2023-bmw-m4_1.png"
       },
       {
         id: 5,
@@ -74,7 +74,7 @@ export class Lista_autosComponent implements OnInit {
         kilometros: 17200,
         calificacion: 4.9,
         precio: 191900,
-        imagenUrl: "assets/imagenesAutos/2024-jaguar-f-Type.png"
+        imagenUrl: "assets/ImagenesAutos/2024-jaguar-f-Type.png"
       },
     ];
 
