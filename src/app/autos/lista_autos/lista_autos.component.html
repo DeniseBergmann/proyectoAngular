@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <table class="table" *ngIf="listaAutos.length">
+  <table class="table" *ngIf="listaAutos.length>0">
     <thead>
       <tr class="text-primary">
         <th>
@@ -33,13 +33,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let auto of listaAutos; let i = index">
+      <tr *ngFor="let auto of listaAutosFiltrados">
         <td>
-          <p><img [src]="auto.imagenUrl" *ngIf="muestraImagen" [style.width.px]="anchoImagen"
+          <p *ngIf="muestraImagen">
+            <img [src]="auto.imagenUrl" [style.width.px]="anchoImagen"
               [style.margin.px]="margenImagen"></p>
         </td>
-        <td>{{ auto.marca | lowercase | aEspacio:"-" }}</td>
-        <td>{{ auto.modelo }}</td>
+        <td>{{ auto.marca }}</td>
+        <td>{{ auto.modelo | lowercase | aEspacio:"-" }}</td>
         <td>{{ auto.anio }}</td>
         <td>{{ auto.color }}</td>
         <td>{{ auto.kilometros | number }}</td>

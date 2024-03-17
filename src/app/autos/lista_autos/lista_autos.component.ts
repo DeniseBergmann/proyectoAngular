@@ -7,15 +7,28 @@ import { Auto } from '../../datos/auto';
   styleUrls: ['./lista_autos.component.css']
 })
 export class Lista_autosComponent implements OnInit {
-
   tituloListaAutos: string = "Lista de Autos";
+
   listaAutos: Auto[] = [];
-  filtro = "fil";
+  listaAutosFiltrados: Auto[] = [];
+
   anchoImagen = 120;
   margenImagen = 5;
   muestraImagen: boolean = false;
 
+  private _filtro : string = "";
+  get filtro(): string {
+    return this._filtro;
+  }
+  set filtro( filtrarPor: string ) {
+    filtrarPor = filtrarPor.toLowerCase();
+    this.listaAutosFiltrados = this.listaAutos.filter(
+      (auto: Auto) => auto.marca.toLocaleLowerCase().includes( filtrarPor )
+    )
+    console.log ( filtrarPor );
+  }
 
+  descripción = "Prueba de enlace entre componentes";
 
   constructor() { }
 
@@ -77,6 +90,7 @@ export class Lista_autosComponent implements OnInit {
         imagenUrl: "assets/ImagenesAutos/2024-jaguar-f-Type.png"
       },
     ];
+    this.listaAutosFiltrados = this.listaAutos;
 
   }
 
