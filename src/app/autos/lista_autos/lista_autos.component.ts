@@ -51,7 +51,7 @@ export class Lista_autosComponent implements OnInit {
         anio: 2024,
         color: "Azul",
         kilometros: 20080,
-        calificacion: 4.1,
+        calificacion: 5,
         precio: 135045,
         imagenUrl: "assets/ImagenesAutos/2024-subaru-brz.png"
       },
@@ -62,7 +62,7 @@ export class Lista_autosComponent implements OnInit {
         anio: 2024,
         color: "Azul",
         kilometros: 25500,
-        calificacion: 4.7,
+        calificacion: 3.7,
         precio: 178900,
         imagenUrl: "assets/ImagenesAutos/2024-audi-rs-5.png"
       },
@@ -84,7 +84,7 @@ export class Lista_autosComponent implements OnInit {
         anio: 2024,
         color: "Plomo",
         kilometros: 17200,
-        calificacion: 4.9,
+        calificacion: 3.9,
         precio: 191900,
         imagenUrl: "assets/ImagenesAutos/2024-jaguar-f-Type.png"
       },
@@ -95,5 +95,9 @@ export class Lista_autosComponent implements OnInit {
 
   toggleImage(): void {
     this.muestraImagen = !this.muestraImagen;
+  }
+
+  onClickCalificacion( mensaje: string ): void {
+    alert( "Dieron click en la calificacion: " + mensaje );
   }
 }

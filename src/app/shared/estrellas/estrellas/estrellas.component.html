@@ -1,5 +1,7 @@
 <div class="p-0">
-  <div class="d-inline-flex px-1" *ngFor ="let stars of estrellasCalificacion">
+  <div *ngFor ="let stars of estrellasCalificacion"
+  class="d-inline-flex px-1"
+  (click)="onClick(calificacion)">
   <fa-icon [icon]="faStar" size="sm"></fa-icon>
   </div>
-  </div>
+</div>

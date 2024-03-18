@@ -47,7 +47,8 @@
         <td>{{ auto.precio | currency }}</td>
         <td>
           <estrellas
-              [calificacion]="auto.calificacion">
+              [calificacion]="auto.calificacion"
+              (starsClick)="onClickCalificacion($event)">
           </estrellas>
         </td>
       </tr>
