@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { Lista_autosComponent } from './autos/lista_autos/lista_autos.component';
 import { TraducePipe } from './shared/traduce.pipe';
 import { AEspacioPipe } from './shared/a-espacio.pipe';
+import { EstrellasComponent } from './shared/estrellas/estrellas/estrellas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Lista_autosComponent,
-    TraducePipe,
-    AEspacioPipe
+    EstrellasComponent,
+    AEspacioPipe,
+    TraducePipe
 
   ],
   imports: [

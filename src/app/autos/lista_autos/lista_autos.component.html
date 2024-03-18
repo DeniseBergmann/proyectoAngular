@@ -45,7 +45,11 @@
         <td>{{ auto.color }}</td>
         <td>{{ auto.kilometros | number }}</td>
         <td>{{ auto.precio | currency }}</td>
-        <td></td>
+        <td>
+          <estrellas
+              [calificacion]="auto.calificacion">
+          </estrellas>
+        </td>
       </tr>
     </tbody>
   </table>
