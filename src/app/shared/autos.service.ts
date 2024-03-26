@@ -70,4 +70,9 @@ export class AutosService {
         ];
         return listaAutos;
     }
+
+    public obtenAuto( id: number ): Auto {
+      let listaAutos = this.determinaListaAutos();
+      return listaAutos.find( auto => auto.id == id )!;
+    }
 }

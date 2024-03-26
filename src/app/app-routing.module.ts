@@ -6,7 +6,7 @@ import { InicioComponent } from './autos/inicio/inicio.component';
 
 const routes: Routes = [
   { path: "autos", component: Lista_autosComponent },
-  { path: "autos/:id", component: Detalle_autosComponent },
+  { path: "auto/:id", component: Detalle_autosComponent },
   { path: "inicio", component: InicioComponent },
   { path: "", redirectTo: "inicio", pathMatch: "full" },
   { path: "**", redirectTo: "inicio", pathMatch: "full" }

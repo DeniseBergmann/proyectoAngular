@@ -1,5 +1,32 @@
 <div class="card">
   <div class="card-header">
-    {{ tituloPagina}}
+    <h3>{{ tituloPagina + ': ' + (auto?.marca || '') + ' ' + (auto?.modelo || '') }}</h3>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        <div class="labels">
+          <label><strong>Marca:</strong> {{ auto?.marca || '-' }}</label>
+          <label><strong>Modelo:</strong> {{ auto?.modelo || '-' }}</label>
+          <label><strong>Año:</strong> {{ auto?.anio || '-' }}</label>
+          <label><strong>Color:</strong> {{ auto?.color || '-' }}</label>
+          <label><strong>Kilometraje:</strong> {{ auto?.kilometros !== undefined ? (auto?.kilometros | number) : '-' }}</label>
+          <label><strong>Precio:</strong> {{ auto?.precio !== undefined ? (auto?.precio | currency) : '-' }}</label>
+          <label>
+            <strong>Calificación:</strong>
+            <estrellas [calificacion]="auto?.calificacion || 0" (starsClick)="onClickCalificacion($event)"></estrellas>
+          </label>
+        </div>
+        <button class="btn btn-primary">Comprar</button>
+      </div>
+      <div class="col-6">
+        <img src="{{ auto?.imagenUrl }}" alt="Foto del auto" class="img-fluid">
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-outline-secondary" style="width: 110px" (click)="onBack()">
+      Regreso
+    </button>
   </div>
 </div>
