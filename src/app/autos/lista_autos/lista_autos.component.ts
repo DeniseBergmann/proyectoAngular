@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Auto } from '../../../datos/auto';
-import { AutosService } from '../../../shared/autos.service';
+import { Auto } from '../../datos/auto';
+import { AutosService } from '../../shared/autos.service';
 
 @Component({
   selector: 'app-lista_autos',
