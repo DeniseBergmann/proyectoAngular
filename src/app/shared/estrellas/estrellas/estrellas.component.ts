@@ -9,17 +9,17 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 })
 export class EstrellasComponent implements OnChanges {
   faStar = faStar;
-  estrellasCalificacion: any[] = [];
+  starsList: any[] = [];
 
   @Input() calificacion: number = 0;
   @Output() starsClick = new EventEmitter<string>();
 
-  constructor() { }
+  constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.estrellasCalificacion= [];
+    this.starsList= [];
     for( var i= 1; i<= this.calificacion; i++){
-      this.estrellasCalificacion.push(1)
+      this.starsList.push(1)
     }
   }
 
