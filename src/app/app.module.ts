@@ -5,7 +5,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Lista_autosComponent } from './autos/lista_autos/lista_autos.component';
+import { Lista_autosComponent } from './autos/lista_autos/lista_autos/lista_autos.component';
 import { TraducePipe } from './shared/traduce.pipe';
 import { AEspacioPipe } from './shared/a-espacio.pipe';
 import { EstrellasComponent } from './shared/estrellas/estrellas/estrellas.component';
