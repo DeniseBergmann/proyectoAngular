@@ -4,8 +4,7 @@
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="col-md-12"> {{ "Filtro" | traduce:"es" }}:</div>
-      <div class="col-md-4">
+      <div class="col-md-12">{{ "Filtro" | traduce:"es" }}:
         <input type="text" [(ngModel)]="filtro" name="filtro">
       </div>
     </div>
@@ -16,50 +15,49 @@
     </div>
     <div class="row">
       <div class="col-2">
-        <a [routerLink]="['/auto']" class="btn btn-info">Nuevo:</a>
+        <a [routerLink]="['/auto']" class="btn btn-info">{{ "Nuevo" | traduce:"es" }}</a>
       </div>
     </div>
   </div>
-  <table class="table" *ngIf="listaAutos.length>0">
-    <thead>
-      <tr class="text-primary">
-        <th>
-          <button class="btn btn-primary" (click)="toggleImage()">
-            {{ muestraImagen ? "Oculta" : "Muestra" }} imagen
-          </button>
-        </th>
-        <th>Marca</th>
-        <th>Modelo</th>
-        <th>Año</th>
-        <th>Color</th>
-        <th>Kilómetros</th>
-        <th>Precio</th>
-        <th>Calificación</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let auto of listaAutosFiltrados">
-        <td>
-          <p *ngIf="muestraImagen">
-            <img [src]="auto.imagenUrl" [style.width.px]="anchoImagen"
-              [style.margin.px]="margenImagen"></p>
-        </td>
-        <td>{{ auto.marca }}</td>
-        <td>
-          <a [routerLink]="['/auto', auto.id]">{{ auto.modelo | lowercase | aEspacio:"-" }}</a>
-        </td>
-        <td>{{ auto.anio }}</td>
-        <td>{{ auto.color }}</td>
-        <td>{{ auto.kilometros | number }}</td>
-        <td>{{ auto.precio | currency }}</td>
-        <td>
-          <estrellas
-              [calificacion]="auto.calificacion"
-              (starsClick)="onClickCalificacion($event)">
-          </estrellas>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <section>
+    <table class="table" *ngIf="listaAutos.length > 0">
+      <thead>
+        <tr class="text-primary">
+          <th>
+            <button class="btn btn-primary" (click)="toggleImage()">
+              {{ muestraImagen ? "Oculta" : "Muestra" }} imagen
+            </button>
+          </th>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>Año</th>
+          <th>Color</th>
+          <th>Kilómetros</th>
+          <th>Precio</th>
+          <th>Calificación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let auto of listaAutosFiltrados">
+          <td>
+            <p *ngIf="muestraImagen">
+              <img [src]="auto.imagenUrl" [style.width.px]="anchoImagen"
+                [style.margin.px]="margenImagen">
+            </p>
+          </td>
+          <td>{{ auto.marca }}</td>
+          <td>
+            <a [routerLink]="['/auto', auto.id]">{{ auto.modelo | lowercase | aEspacio:"-" }}</a>
+          </td>
+          <td>{{ auto.anio }}</td>
+          <td>{{ auto.color }}</td>
+          <td>{{ auto.kilometros | number }}</td>
+          <td>{{ auto.precio | currency }}</td>
+          <td>
+            <estrellas [calificacion]="auto.calificacion" (starsClick)="onClickCalificacion($event)"></estrellas>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 </div>
-

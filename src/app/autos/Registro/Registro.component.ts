@@ -11,10 +11,10 @@ export class RegistroComponent implements OnInit {
 
   auto: Auto = {
     id: 0,
-    marca: "",
-    modelo: "",
+    marca: '',
+    modelo: '',
     anio: 0,
-    color: "",
+    color: '',
     kilometros: 0,
     calificacion: 0,
     precio: 0,
@@ -28,7 +28,7 @@ export class RegistroComponent implements OnInit {
 
   guardar() {
     this.autosService.addAuto(this.auto);
-    console.log("Grabado con éxito");
+    console.log('Grabado con éxito');
   }
 
 }

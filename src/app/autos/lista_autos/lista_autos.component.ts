@@ -35,15 +35,25 @@ export class Lista_autosComponent implements OnInit {
   constructor(private _autosService: AutosService) {}
 
   ngOnInit(): void {
-    this.listaAutos = this._autosService.obtenListaAutos();
-    this.listaAutosFiltrados = this.listaAutos;
+    this.obtenerAutos();
   }
 
   toggleImage(): void {
     this.muestraImagen = !this.muestraImagen;
   }
 
-  onClickCalificacion( mensaje: string ): void {
-    alert( "Dieron click en la calificacion: " + mensaje );
+  onClickCalificacion(mensaje: string): void {
+    alert("Dieron click en la calificacion: " + mensaje);
+  }
+
+  obtenerAutos(): void {
+    this.listaAutos = this._autosService.obtenListaAutos();
+    this.listaAutosFiltrados = this.listaAutos;
+  }
+
+  agregarAuto(auto: Auto): void {
+    this._autosService.addAuto(auto);
+    this.obtenerAutos();
   }
 }
+
