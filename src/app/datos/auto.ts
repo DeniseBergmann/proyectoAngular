@@ -1,5 +1,5 @@
 export class Auto {
-  id: number;
+  id: number | null;
   marca: string;
   modelo: string;
   anio: number;
@@ -7,9 +7,9 @@ export class Auto {
   kilometros: number;
   calificacion: number;
   precio: number;
-  imagenUrl: string;
+  imagenUrl: string | null;
 
-  constructor(id: number, marca: string, modelo: string, anio: number, color: string, kilometros: number, calificacion: number, precio: number, imagenUrl: string) {
+  constructor(id: number, marca: string, modelo: string, anio: number, color: string, kilometros: number, calificacion: number, precio: number, imagenUrl: string | null) {
     this.id = id;
     this.marca = marca;
     this.modelo = modelo;

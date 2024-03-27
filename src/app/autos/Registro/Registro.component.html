@@ -1,0 +1,62 @@
+<div class="card">
+  <div class="card-header">
+    CREACIÓN DE AUTOMÓVIL
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12">
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Código:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="staticCodigo" name="id" [(ngModel)]="auto.id">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Marca:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="staticCodigo" name="marca" [(ngModel)]="auto.marca">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Modelo:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="staticCodigo" name="modelo" [(ngModel)]="auto.modelo">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Año:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="staticCodigo" name="anio" [(ngModel)]="auto.anio">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Color:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="staticCodigo" name="color" [(ngModel)]="auto.color">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Kilometros:</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="staticCodigo" name="kilometros" [(ngModel)]="auto.kilometros">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Precio:</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="staticCodigo" name="precio" [(ngModel)]="auto.precio">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticCodigo" class="col-sm-2 col-form-label">Calificación:</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="staticCodigo" name="calificacion" [(ngModel)]="auto.calificacion">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn btn-info" (click)="guardar">Guardar</button>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,7 @@ import { InicioComponent } from './autos/inicio/inicio.component';
 import { EstrellasComponent } from './shared/estrellas/estrellas/estrellas.component';
 import { TraducePipe } from './shared/traduce.pipe';
 import { AEspacioPipe } from './shared/a-espacio.pipe';
+import { RegistroComponent } from './autos/Registro/Registro.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,22 @@ import { AEspacioPipe } from './shared/a-espacio.pipe';
     InicioComponent,
     EstrellasComponent,
     TraducePipe,
-    AEspacioPipe
+    AEspacioPipe,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     FontAwesomeModule
+  ],
+  exports: [
+    Lista_autosComponent,
+    Detalle_autosComponent,
+    InicioComponent,
+    EstrellasComponent,
+    RegistroComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
