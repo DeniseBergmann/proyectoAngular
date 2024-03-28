@@ -20,8 +20,10 @@ export class Detalle_autosComponent implements OnInit {
 
   ngOnInit(): void {
     let id = Number(this._activatedRoute.snapshot.paramMap.get('id'));
-    this.auto = this._autosService.obtenAuto(id);
-    this.tituloPagina += ": " + id;
+    this._autosService.getAuto(id).subscribe(auto => {
+      this.auto = auto;
+      this.tituloPagina += ": " + id;
+    });
   }
 
   onBack(): void {
@@ -31,3 +33,4 @@ export class Detalle_autosComponent implements OnInit {
   onClickCalificacion(event: any) {
   }
 }
+

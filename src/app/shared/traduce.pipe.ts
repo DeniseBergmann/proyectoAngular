@@ -25,4 +25,3 @@ export class TraducePipe implements PipeTransform {
     }
   }
 }
-

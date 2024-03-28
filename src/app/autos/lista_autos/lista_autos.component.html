@@ -4,23 +4,22 @@
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="col-md-12">{{ "Filtro" | traduce:"es" }}:
+      <div class="col-md-12">
+        {{ "Filtro" | traduce:"es" }}:
         <input type="text" [(ngModel)]="filtro" name="filtro">
       </div>
     </div>
-    <div class="row">
+    <div class="row mt-3">
       <div class="col-md-6">
-        <h5>{{ "Filtrado por" | traduce:"es"}}: &nbsp; {{ filtro }}</h5>
+        <h5>{{ "Filtrado por" | traduce:"es" }}: {{ filtro }}</h5>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-2">
+      <div class="col-md-6 text-md-end">
         <a [routerLink]="['/auto']" class="btn btn-info">{{ "Nuevo" | traduce:"es" }}</a>
       </div>
     </div>
   </div>
   <section>
-    <table class="table" *ngIf="listaAutos.length > 0">
+    <table class="table" *ngIf="listaAutosFiltrados.length > 0">
       <thead>
         <tr class="text-primary">
           <th>
@@ -28,21 +27,20 @@
               {{ muestraImagen ? "Oculta" : "Muestra" }} imagen
             </button>
           </th>
-          <th>Marca</th>
-          <th>Modelo</th>
-          <th>Año</th>
-          <th>Color</th>
-          <th>Kilómetros</th>
-          <th>Precio</th>
-          <th>Calificación</th>
+          <th>{{ "Marca" | traduce:"es" }}</th>
+          <th>{{ "Modelo" | traduce:"es" }}</th>
+          <th>{{ "Año" | traduce:"es" }}</th>
+          <th>{{ "Color" | traduce:"es" }}</th>
+          <th>{{ "Kilómetros" | traduce:"es" }}</th>
+          <th>{{ "Precio" | traduce:"es" }}</th>
+          <th>{{ "Calificación" | traduce:"es" }}</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let auto of listaAutosFiltrados">
           <td>
             <p *ngIf="muestraImagen">
-              <img [src]="auto.imagenUrl" [style.width.px]="anchoImagen"
-                [style.margin.px]="margenImagen">
+              <img [src]="auto.imagenUrl" [style.width.px]="anchoImagen" [style.margin.px]="margenImagen">
             </p>
           </td>
           <td>{{ auto.marca }}</td>
@@ -54,10 +52,12 @@
           <td>{{ auto.kilometros | number }}</td>
           <td>{{ auto.precio | currency }}</td>
           <td>
-            <estrellas [calificacion]="auto.calificacion" (starsClick)="onClickCalificacion($event)"></estrellas>
+            <estrellas [calificacion]="auto.calificacion" (starsClick)="onClickCalificacion(auto.calificacion.toString())"></estrellas>
           </td>
         </tr>
       </tbody>
     </table>
   </section>
 </div>
+
+

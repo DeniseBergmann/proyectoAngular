@@ -5,9 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class AEspacioPipe implements PipeTransform {
 
-  transform( valorInicial: string, aBuscar: string): unknown {
+  transform(valorInicial: string, aBuscar: string): string {
     const reemplazar = " ";
-    return valorInicial.replace( aBuscar, reemplazar );
+    return valorInicial.replace(aBuscar, reemplazar);
   }
 
 }
+

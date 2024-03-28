@@ -3,60 +3,61 @@
     CREACIÓN DE AUTOMÓVIL
   </div>
   <div class="card-body">
-    <div class="row">
-      <div class="col-12">
-        <div class="mb-3 row">
-          <label for="staticCodigo" class="col-sm-2 col-form-label">Código:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="staticCodigo" name="id" [(ngModel)]="auto.id">
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="staticCodigo" class="col-sm-2 col-form-label">Marca:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="staticCodigo" name="marca" [(ngModel)]="auto.marca">
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="staticCodigo" class="col-sm-2 col-form-label">Modelo:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="staticCodigo" name="modelo" [(ngModel)]="auto.modelo">
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="staticCodigo" class="col-sm-2 col-form-label">Año:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="staticCodigo" name="anio" [(ngModel)]="auto.anio">
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="staticCodigo" class="col-sm-2 col-form-label">Color:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="staticCodigo" name="color" [(ngModel)]="auto.color">
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="staticCodigo" class="col-sm-2 col-form-label">Kilometros:</label>
-          <div class="col-sm-10">
-            <input type="number" class="form-control" id="staticCodigo" name="kilometros" [(ngModel)]="auto.kilometros">
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="staticCodigo" class="col-sm-2 col-form-label">Precio:</label>
-          <div class="col-sm-10">
-            <input type="number" class="form-control" id="staticCodigo" name="precio" [(ngModel)]="auto.precio">
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="staticCodigo" class="col-sm-2 col-form-label">Calificación:</label>
-          <div class="col-sm-10">
-            <input type="number" class="form-control" id="staticCodigo" name="calificacion" [(ngModel)]="auto.calificacion">
-          </div>
+    <form [formGroup]="formulario" (ngSubmit)="guardar()">
+      <div class="mb-3 row">
+        <label for="staticCodigo" class="col-sm-2 col-form-label">Código:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="staticCodigo" formControlName="id">
         </div>
       </div>
-    </div>
-    <div class="row">
-      <button class="btn btn-info" (click)="guardar">Guardar</button>
-    </div>
+      <div class="mb-3 row">
+        <label for="staticMarca" class="col-sm-2 col-form-label">Marca:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="staticMarca" formControlName="marca">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="staticModelo" class="col-sm-2 col-form-label">Modelo:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="staticModelo" formControlName="modelo">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="staticAnio" class="col-sm-2 col-form-label">Año:</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="staticAnio" formControlName="anio">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="staticColor" class="col-sm-2 col-form-label">Color:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="staticColor" formControlName="color">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="staticKilometros" class="col-sm-2 col-form-label">Kilometros:</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="staticKilometros" formControlName="kilometros">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="staticPrecio" class="col-sm-2 col-form-label">Precio:</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="staticPrecio" formControlName="precio">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="staticCalificacion" class="col-sm-2 col-form-label">Calificación:</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="staticCalificacion" formControlName="calificacion">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-10 offset-sm-2">
+          <button type="submit" class="btn btn-info">Guardar</button>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
+

@@ -7,7 +7,7 @@ import { AutosService } from '../../shared/autos.service';
   templateUrl: './lista_autos.component.html',
   styleUrls: ['./lista_autos.component.css']
 })
-export class Lista_autosComponent implements OnInit {
+export class ListaAutosComponent implements OnInit {
 
   tituloListaAutos: string = "Lista de Autos";
 
@@ -18,21 +18,30 @@ export class Lista_autosComponent implements OnInit {
   margenImagen = 5;
   muestraImagen: boolean = false;
 
-  private _filtro : string = "";
-  get filtro(): string {
-    return this._filtro;
-  }
-  set filtro( filtrarPor: string ) {
-    filtrarPor = filtrarPor.toLowerCase();
+  private _filtro: string = "";
+get filtro(): string {
+  return this._filtro;
+}
+set filtro(filtrarPor: string) {
+  this._filtro = filtrarPor.toLowerCase();
+  this.filterAutos();
+}
+
+filterAutos(): void {
+  if (this._filtro.trim() !== "") {
     this.listaAutosFiltrados = this.listaAutos.filter(
-      (auto: Auto) => auto.marca.toLocaleLowerCase().includes( filtrarPor )
-    )
-    console.log ( filtrarPor );
+      (auto: Auto) => auto.marca.toLowerCase().includes(this._filtro)
+    );
+  } else {
+    this.listaAutosFiltrados = this.listaAutos;
   }
+}
 
   descripción = "Prueba de enlace entre componentes";
 
-  constructor(private _autosService: AutosService) {}
+  constructor(
+    private _autosService: AutosService,
+  ) {}
 
   ngOnInit(): void {
     this.obtenerAutos();
@@ -43,17 +52,21 @@ export class Lista_autosComponent implements OnInit {
   }
 
   onClickCalificacion(mensaje: string): void {
-    alert("Dieron click en la calificacion: " + mensaje);
+    alert("Dieron click en la calificación: " + mensaje);
   }
 
   obtenerAutos(): void {
-    this.listaAutos = this._autosService.obtenListaAutos();
-    this.listaAutosFiltrados = this.listaAutos;
+    this._autosService.getAutos('').subscribe(
+      autos => {
+        this.listaAutos = autos;
+        this.filterAutos();
+      }
+    );
   }
 
   agregarAuto(auto: Auto): void {
     this._autosService.addAuto(auto);
-    this.obtenerAutos();
   }
+
 }
 

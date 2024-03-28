@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Lista_autosComponent } from './autos/lista_autos/lista_autos.component';
+import { ListaAutosComponent } from './autos/lista_autos/lista_autos.component';
 import { Detalle_autosComponent } from './autos/detalle_autos/detalle_autos.component';
 import { InicioComponent } from './autos/inicio/inicio.component';
 import { EstrellasComponent } from './shared/estrellas/estrellas/estrellas.component';
@@ -16,7 +16,7 @@ import { RegistroComponent } from './autos/Registro/Registro.component';
 @NgModule({
   declarations: [
     AppComponent,
-    Lista_autosComponent,
+    ListaAutosComponent,
     Detalle_autosComponent,
     InicioComponent,
     EstrellasComponent,
@@ -27,16 +27,9 @@ import { RegistroComponent } from './autos/Registro/Registro.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FontAwesomeModule
-  ],
-  exports: [
-    Lista_autosComponent,
-    Detalle_autosComponent,
-    InicioComponent,
-    EstrellasComponent,
-    RegistroComponent,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
