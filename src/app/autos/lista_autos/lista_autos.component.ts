@@ -11,37 +11,35 @@ export class ListaAutosComponent implements OnInit {
 
   tituloListaAutos: string = "Lista de Autos";
 
-  listaAutos: Auto[] = [];
+  public listaAutos: Array<Auto> = [];
   listaAutosFiltrados: Auto[] = [];
-
   anchoImagen = 120;
   margenImagen = 5;
   muestraImagen: boolean = false;
-
   private _filtro: string = "";
-get filtro(): string {
-  return this._filtro;
-}
-set filtro(filtrarPor: string) {
-  this._filtro = filtrarPor.toLowerCase();
-  this.filterAutos();
-}
 
-filterAutos(): void {
-  if (this._filtro.trim() !== "") {
-    this.listaAutosFiltrados = this.listaAutos.filter(
-      (auto: Auto) => auto.marca.toLowerCase().includes(this._filtro)
-    );
-  } else {
-    this.listaAutosFiltrados = this.listaAutos;
+  constructor(private _autosService: AutosService) { }
+
+  get filtro(): string {
+    return this._filtro;
   }
-}
+
+  set filtro(filtrarPor: string) {
+    this._filtro = filtrarPor.toLowerCase();
+    this.filterAutos();
+  }
+
+  filterAutos(): void {
+    if (this._filtro.trim() !== "") {
+      this.listaAutosFiltrados = this.listaAutos.filter(
+        (auto: Auto) => auto.marca.toLowerCase().includes(this._filtro)
+      );
+    } else {
+      this.listaAutosFiltrados = this.listaAutos;
+    }
+  }
 
   descripción = "Prueba de enlace entre componentes";
-
-  constructor(
-    private _autosService: AutosService,
-  ) {}
 
   ngOnInit(): void {
     this.obtenerAutos();
@@ -56,10 +54,11 @@ filterAutos(): void {
   }
 
   obtenerAutos(): void {
-    this._autosService.getAutos('').subscribe(
-      autos => {
-        this.listaAutos = autos;
-        this.filterAutos();
+    this._autosService.getAutos().subscribe(
+      respuesta => {
+        console.log(respuesta);
+        this.listaAutos = respuesta;
+        this.listaAutosFiltrados = this.listaAutos; // Inicialmente, establecer los autos filtrados como la lista completa
       }
     );
   }
@@ -67,6 +66,4 @@ filterAutos(): void {
   agregarAuto(auto: Auto): void {
     this._autosService.addAuto(auto);
   }
-
 }
-

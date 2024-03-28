@@ -1,9 +1,11 @@
 import { Injectable } from "@angular/core";
 import { Auto } from "../datos/auto";
 import { Observable, of } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
 @Injectable({
-    providedIn: "root"
+  providedIn: "root"
 })
 export class AutosService {
   private listaAutos: Auto[] = [
@@ -14,11 +16,20 @@ export class AutosService {
     {id: 5, marca: "Jaguar", modelo: "F-Type", anio: 2021, color: "Plomo", kilometros: 17200, calificacion: 3.9, precio: 191000, imagenUrl: "assets/ImagenesAutos/2024-jaguar-f-Type.png"},
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  baseUrl = "http://www.epico.gob.ec/vehiculo/public/api/";
 
-  getAutos(filtro: string): Observable<Auto[]> {
-    const listaFiltrada = this.listaAutos.filter(elem => elem.marca.toLowerCase().includes(filtro.toLowerCase()));
-    return of(listaFiltrada);
+  getAutos(): Observable<Auto[]> {
+    return this.http.get<Respuesta>(this.baseUrl + "vehiculos/").pipe(
+      map(respuesta => {
+        let lista:Array<Auto> = [];
+        respuesta.data.forEach(element => {
+          lista.push({id: element.id, marca: element.marca, modelo: element.modelo, anio: element.anio, color: element.color, kilometros: element.kilometros, calificacion: element.calificacion, precio: element.precio, imagenUrl: element.imagenUrl})
+
+        });
+        return respuesta.data;
+      })
+    );
   }
 
   getAuto(id: number): Observable<Auto | undefined> {
@@ -31,3 +42,8 @@ export class AutosService {
   }
 }
 
+interface Respuesta {
+  codigo: string,
+  mensaje: string,
+  data: Auto[]
+}

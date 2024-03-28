@@ -12,6 +12,7 @@ import { EstrellasComponent } from './shared/estrellas/estrellas/estrellas.compo
 import { TraducePipe } from './shared/traduce.pipe';
 import { AEspacioPipe } from './shared/a-espacio.pipe';
 import { RegistroComponent } from './autos/Registro/Registro.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RegistroComponent } from './autos/Registro/Registro.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
