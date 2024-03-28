@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AutosService } from '../../shared/autos.service';
 import { Auto } from '../../datos/auto';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro',
@@ -16,14 +17,14 @@ export class RegistroComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.formulario = this.formBuilder.group({
-      id: [],
+      codigo: [],
       marca: ['', Validators.required],
       modelo: ['', Validators.required],
-      anio: ['', [Validators.required, Validators.pattern('[0-9]{4}')]],
+      anio: ['', Validators.required],
       color: ['', Validators.required],
-      kilometros: ['', [Validators.required, Validators.pattern('[0-9]+')]],
-      calificacion: ['', [Validators.required, Validators.min(0), Validators.max(5)]],
-      precio: ['', [Validators.required, Validators.pattern('[0-9]+')]],
+      kilometros: ['', Validators.required],
+      calificacion: ['', Validators.required],
+      precio: [],
     });
   }
 
@@ -32,16 +33,40 @@ export class RegistroComponent implements OnInit {
 
   guardar() {
     if (this.formulario.valid) {
-      const nuevoAuto: Auto = this.formulario.value as Auto;
-      this.autoServicio.addAuto(nuevoAuto);
-      console.log('Nuevo auto agregado:', nuevoAuto);
-      this.formulario.reset();
+      this.autoServicio.insertAuto({...this.formulario.value}).subscribe(
+        respuesta => {
+          if(respuesta.codigo === '1') {
+            this.mostrarMensajeExito("Vehículo registrado con éxito");
+            this.formulario.reset();
+          } else {
+            this.mostrarMensajeError("No se pudo registrar el vehículo: " + respuesta.mensaje);
+          }
+        },
+        error => {
+          console.error("Error al registrar el vehículo:", error);
+          this.mostrarMensajeError("Ocurrió un error al registrar el vehículo");
+        }
+      );
     } else {
-      console.error('El formulario no es válido');
+      this.mostrarMensajeError("Faltan llenar campos");
     }
   }
+
+  mostrarMensajeExito(mensaje: string): void {
+    Swal.fire({
+      title: "Mensaje",
+      text: mensaje,
+      icon: "success"
+    });
+  }
+
+  mostrarMensajeError(mensaje: string): void {
+    Swal.fire({
+      title: "Mensaje",
+      text: mensaje,
+      icon: "error"
+    });
+  }
 }
-
-
 
 

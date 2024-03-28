@@ -6,7 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaAutosComponent } from './autos/lista_autos/lista_autos.component';
-import { Detalle_autosComponent } from './autos/detalle_autos/detalle_autos.component';
+import { DetalleAutosComponent } from './autos/detalle_autos/detalle_autos.component';
 import { InicioComponent } from './autos/inicio/inicio.component';
 import { EstrellasComponent } from './shared/estrellas/estrellas/estrellas.component';
 import { TraducePipe } from './shared/traduce.pipe';
@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     ListaAutosComponent,
-    Detalle_autosComponent,
+    DetalleAutosComponent,
     InicioComponent,
     EstrellasComponent,
     TraducePipe,

@@ -8,7 +8,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 })
 export class EstrellasComponent implements OnChanges {
   faStar = faStar;
-  starsList: any[] = [];
+  starsList: number[] = [];
 
   @Input() calificacion: number = 0;
   @Output() starsClick = new EventEmitter<number>();
@@ -17,8 +17,8 @@ export class EstrellasComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.starsList = [];
-    for (let i = 1; i <= this.calificacion; i++) {
-      this.starsList.push(1);
+    for (let i = 1; i <= 5; i++) {
+      this.starsList.push(i <= this.calificacion ? 1 : 0);
     }
   }
 
@@ -26,3 +26,4 @@ export class EstrellasComponent implements OnChanges {
     this.starsClick.emit(stars);
   }
 }
+

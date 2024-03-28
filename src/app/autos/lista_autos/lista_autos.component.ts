@@ -3,22 +3,21 @@ import { Auto } from '../../datos/auto';
 import { AutosService } from '../../shared/autos.service';
 
 @Component({
-  selector: 'app-lista_autos',
+  selector: 'app-lista-autos',
   templateUrl: './lista_autos.component.html',
   styleUrls: ['./lista_autos.component.css']
 })
 export class ListaAutosComponent implements OnInit {
 
-  tituloListaAutos: string = "Lista de Autos";
-
-  public listaAutos: Array<Auto> = [];
+  tituloListaAutos = "Lista de Autos";
+  listaAutos: Auto[] = [];
   listaAutosFiltrados: Auto[] = [];
   anchoImagen = 120;
   margenImagen = 5;
-  muestraImagen: boolean = false;
-  private _filtro: string = "";
+  muestraImagen = false;
+  private _filtro = "";
 
-  constructor(private _autosService: AutosService) { }
+  constructor(private autosService: AutosService) { }
 
   get filtro(): string {
     return this._filtro;
@@ -54,16 +53,23 @@ export class ListaAutosComponent implements OnInit {
   }
 
   obtenerAutos(): void {
-    this._autosService.getAutos().subscribe(
+    this.autosService.getAutos().subscribe(
       respuesta => {
-        console.log(respuesta);
-        this.listaAutos = respuesta;
-        this.listaAutosFiltrados = this.listaAutos; // Inicialmente, establecer los autos filtrados como la lista completa
+        if (respuesta) {
+          console.log(respuesta);
+          this.listaAutos = respuesta;
+          this.listaAutosFiltrados = this.listaAutos;
+        } else {
+          console.error("La respuesta está vacía o indefinida.");
+        }
+      },
+      error => {
+        console.error("Error al obtener la lista de autos:", error);
       }
     );
   }
 
   agregarAuto(auto: Auto): void {
-    this._autosService.addAuto(auto);
+    this.autosService.addAuto(auto);
   }
 }
